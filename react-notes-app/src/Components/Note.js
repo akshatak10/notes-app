@@ -1,12 +1,19 @@
 import { MdDeleteForever } from 'react-icons/md';
 
-const Note = () => {
-    return <div className="note">
-        <span>hello this is a note</span>
-        <div className='note-footer'>
-            <small>19/06/2002</small>
-            <MdDeleteForever className='delete-icons' size='1.3em'/>
-        </div>
-    </div>;
-}
- export default Note;
+const Note = ({ id, text, date, handleDeleteNote }) => {
+	return (
+		<div className='note'>
+			<span>{text}</span>
+			<div className='note-footer'>
+				<small>{date}</small>
+				<MdDeleteForever
+					onClick={() => handleDeleteNote(id)}
+					className='delete-icon'
+					size='1.3em'
+				/>
+			</div>
+		</div>
+	);
+};
+
+export default Note;
